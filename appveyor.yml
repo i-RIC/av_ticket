@@ -53,5 +53,12 @@ before_build:
       Get-FileHash appveyor.json
 
 build_script:
-  - echo "Finished"
+  - echo "***Finished***"
 
+on_failure:
+  - cmd: |
+      echo iric_json_pw(cmd) = %iric_json_pw%
+  - ps: |
+      echo "iric_json_pw(ps) = $($env:iric_json_pw)"
+  - pwsh: |
+      echo "iric_json_pw(pwsh) = $($env:iric_json_pw)"
